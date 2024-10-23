@@ -1,0 +1,9 @@
+.wrapper {
+  position: relative;
+}
+
+.content {
+  padding-top: var(--header-height);
+  background-color: var(--bg-body);
+  height: 500px;
+}

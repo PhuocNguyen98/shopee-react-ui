@@ -1,0 +1,59 @@
+.wrapper {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity linear 0.2s, visibility linear 0.2s;
+  z-index: 1;
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity linear 0.2s, visibility linear 0.2s;
+  }
+}
+
+.inner {
+  min-width: 200px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 1px;
+
+  &.full__width {
+    width: 100%;
+  }
+
+  &.right {
+    left: unset;
+    right: -10px;
+  }
+
+  &.arrow::before {
+    content: '';
+    border-width: 12px 20px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+    position: absolute;
+    top: -24px;
+    left: 22px;
+  }
+
+  &.right.arrow::before {
+    left: unset;
+    right: 10px;
+  }
+}
+
+.inner::after {
+  $height: 12px;
+  content: '';
+  width: inherit;
+  height: $height;
+  background-color: transparent;
+  position: absolute;
+  top: -$height;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+}
